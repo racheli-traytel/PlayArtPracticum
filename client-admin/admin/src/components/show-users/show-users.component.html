@@ -1,0 +1,24 @@
+<div class="container">
+    <div class="courses-grid">
+      @for(user of users; track user.id)
+      {
+      <mat-card class="course-card">
+        <mat-card-header>
+          <mat-card-title>name: {{ user.firstName}} {{user.lastName }}</mat-card-title>
+        </mat-card-header>
+  
+        <mat-card-content>
+          <p>email: {{ user.email }}</p>
+          <p>password: {{ user.password }}</p>
+        </mat-card-content>
+
+          <button class="icon-button" (click)="editUser(user)">
+            <mat-icon>edit</mat-icon>
+          </button>
+          <button class="icon-button" (click)="deleteUser(user.id)">
+            <mat-icon>delete</mat-icon>
+          </button>  
+      </mat-card>
+    }
+    </div>
+  </div>

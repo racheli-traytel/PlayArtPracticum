@@ -1,0 +1,26 @@
+<input type="file" (change)="onFileSelected($event)">
+<button (click)="uploadFile()" [disabled]="!selectedFile">העלה קובץ</button>
+
+@if (filePreview) {
+    @if (filePreview) {
+        <p>תצוגה מקדימה של הקובץ:</p>
+        @if (isImage) {
+          <img [src]="filePreview" alt="תמונה שנבחרה" width="200">
+        }
+        @if (!isImage) {
+          <pre>{{ filePreview }}</pre> <!-- אם מדובר בקובץ טקסט, מציגים את התוכן -->
+        }
+      }
+    }
+
+@if (uploadProgress > 0 && uploadProgress < 100) {
+  <p>העלאה: {{ uploadProgress }}%</p>
+}
+
+@if (uploadSuccess) {
+  <p>הקובץ הועלה בהצלחה!</p>
+}
+
+@if (uploadError) {
+  <p>שגיאה בהעלאת הקובץ: {{ uploadError }}</p>
+}
