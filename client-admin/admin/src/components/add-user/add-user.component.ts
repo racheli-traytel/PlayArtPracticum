@@ -8,6 +8,7 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatCardModule } from '@angular/material/card';
+import { AuthService } from '../../services/auth.service';
 
 @Component({
   selector: 'app-add-user',
@@ -26,7 +27,7 @@ import { MatCardModule } from '@angular/material/card';
 export class AddUserComponent implements OnInit{
   addUserForm!: FormGroup;
 
-  constructor(public userservice: UsersService, private fb: FormBuilder,    private router: Router
+  constructor(public userservice: UsersService, private fb: FormBuilder,    private router: Router,public AuthService:AuthService
   ) {}
 
   ngOnInit(): void {
@@ -49,14 +50,14 @@ export class AddUserComponent implements OnInit{
     
         const { firstName, lastName, email } = userGroup;
     
-    this.userservice.addUser(firstName, lastName,email,password).subscribe({
+    this.AuthService.register(firstName, lastName,email,password,"User").subscribe({
     next: (response) => {
-      console.log(response.message);
-      this.router.navigate(['/home']);
+      console.log(response);
+      this.router.navigate(['/home/show-users']);
 
     },
     error: (err) => {
-      console.error('Error adding course', err);
+      console.error('Error adding user', err);
     }
   });
 

@@ -47,7 +47,9 @@ namespace PlayArt.Data.Repositories
         public  int GetIdByRole(string role)
         {
             var r =  _dataContext.Roles.FirstOrDefault(r => r.RoleName == role);
-            return r.Id;
+            if(r!=null)
+              return r.Id;
+            return -1;
         }
 
         public async Task<bool> UpdateAsync(int id, Roles role)

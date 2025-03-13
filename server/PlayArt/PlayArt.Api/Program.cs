@@ -114,6 +114,7 @@ builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IDrawingService, DrawingService>();
 builder.Services.AddScoped<IPaintedDrawingService, PaintedDrawingService>();
 builder.Services.AddScoped<IUserService, UserService>();
+builder.Services.AddScoped<IUserRoleService, UserRoleService>();
 
 // ? הוספת AutoMapper
 builder.Services.AddAutoMapper(typeof(ProfileMapping), typeof(ProfileMappingPostModel));

@@ -1,12 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { UsersService } from '../../services/users.service';
-import { User } from '../../models/user';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { EditUserComponent } from '../edit-user/edit-user.component';
+import { User } from '../../models/user';
 
 @Component({
   selector: 'app-show-users',

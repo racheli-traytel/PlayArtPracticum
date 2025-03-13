@@ -1,4 +1,5 @@
-﻿using AutoMapper;
+﻿using Api_Bussiness.API.PostEntity;
+using AutoMapper;
 using PlayArt.Api.Models;
 using PlayArt.Core.DTOs;
 using PlayArt.Core.entities;
@@ -14,7 +15,9 @@ namespace PlayArt.Api
             CreateMap<DrawingPostModel,DrawingDTO>().ReverseMap();
             CreateMap<PaintedDrawingPostModel,PaintedDrawingDTO>().ReverseMap();
             CreateMap< UserPostModel,UserDTO>().ReverseMap();
+            CreateMap<RegisterModel, UserDTO>().ReverseMap();
+
         }
- 
+
     }
 }

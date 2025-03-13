@@ -56,14 +56,11 @@ namespace PlayArt.Service
         }
         public async Task<UserDTO> AddUserAsync(UserDTO user)
         {
-            int id = _rolerepository.GetIdByRole("User");
-            
+            //int id = _rolerepository.GetIdByRole("User");
             if (_repository.GetById(user.Id) == null)
             {
                 var result = await _repository.AddAsync(_mapper.Map<User>(user));
-           
-                _userrolerepository.AddAsync(new UserRoles() { RoleId = id, UserId = result.Id });
-
+                //_userrolerepository.AddAsync(new UserRoles() { RoleId = id, UserId = result.Id });
                 return _mapper.Map<UserDTO>(result);
             }
             return null;

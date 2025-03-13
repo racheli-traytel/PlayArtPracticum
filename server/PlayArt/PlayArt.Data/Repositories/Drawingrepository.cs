@@ -103,8 +103,5 @@ namespace PlayArt.Data.Repository
                                    .Where(d => d.Category == category)
                                    .ToList(); // אם נבחרה קטגוריה, מחזיר רק את דפי העבודה בקטגוריה זו
         }
-
-
-
     }
 }
