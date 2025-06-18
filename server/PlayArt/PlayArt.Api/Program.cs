@@ -21,7 +21,8 @@ using PlayArt.Sevice;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// äåñôú sarai  sari updated
+// Ã¤Ã¥Ã±Ã´Ãº sarai  sari updated
+
 
 builder.Services.AddCors(options =>
 {
@@ -33,7 +34,7 @@ builder.Services.AddCors(options =>
     });
 });
 
-// äåñôú JWT Authentication
+// Ã¤Ã¥Ã±Ã´Ãº JWT Authentication
 builder.Services.AddScoped<AuthService>();
 
 builder.Services.AddAuthentication(options =>
@@ -55,7 +56,7 @@ builder.Services.AddAuthentication(options =>
     };
 });
 
-//// äåñôú äøùàåú îáåññåú-úô÷éãéí
+//// Ã¤Ã¥Ã±Ã´Ãº Ã¤Ã¸Ã¹Ã Ã¥Ãº Ã®Ã¡Ã¥Ã±Ã±Ã¥Ãº-ÃºÃ´Ã·Ã©Ã£Ã©Ã­
 builder.Services.AddAuthorization(options =>
 {
     options.AddPolicy("AdminOnly", policy => policy.RequireRole("Admin"));
@@ -67,7 +68,7 @@ builder.Services.Configure<KestrelServerOptions>(options =>
 {
     options.AllowSynchronousIO = true;
 });
-// ? äåñôú ùéøåúéí ìôðé éöéøú ä-Application
+// ? Ã¤Ã¥Ã±Ã´Ãº Ã¹Ã©Ã¸Ã¥ÃºÃ©Ã­ Ã¬Ã´Ã°Ã© Ã©Ã¶Ã©Ã¸Ãº Ã¤-Application
 builder.Services.AddControllers();
 builder.Services.AddOpenApi();
 
@@ -100,7 +101,7 @@ builder.Services.AddSwaggerGen(options =>
 });
 builder.Services.AddDbContext<DataContext>();
 
-//? äåñôú ä-Repositories
+//? Ã¤Ã¥Ã±Ã´Ãº Ã¤-Repositories
 builder.Services.AddScoped<IRepository<User>, UserRepository>();
 builder.Services.AddScoped<IRepository<Drawing>, DrawingRepository>();
 builder.Services.AddScoped<IRepository<PaintedDrawing>, PaintedDrawingRepository>();
@@ -110,27 +111,27 @@ builder.Services.AddScoped<IUserRepository, UserRepository>();
 builder.Services.AddScoped<IUserRoleRepository, UserRoleRepository>();
 builder.Services.AddScoped<IRoleRepository, RoleRepository>();
 
-//?äåñôú ä-Services
+//?Ã¤Ã¥Ã±Ã´Ãº Ã¤-Services
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IDrawingService, DrawingService>();
 builder.Services.AddScoped<IPaintedDrawingService, PaintedDrawingService>();
 builder.Services.AddScoped<IUserService, UserService>();
 builder.Services.AddScoped<IUserRoleService, UserRoleService>();
 
-// ? äåñôú AutoMapper
+// ? Ã¤Ã¥Ã±Ã´Ãº AutoMapper
 builder.Services.AddAutoMapper(typeof(ProfileMapping), typeof(ProfileMappingPostModel));
 builder.Services.AddDbContext<DataContext>(option =>
 {
     option.UseSqlServer("Data Source = DESKTOP-SSNMLFD; Initial Catalog = PlayArt; Integrated Security = true; Trusted_Connection = SSPI; MultipleActiveResultSets = true; TrustServerCertificate = true;");
 }
  );
-// ?? òëùéå éåöøéí àú ä-Application
+// ?? Ã²Ã«Ã¹Ã©Ã¥ Ã©Ã¥Ã¶Ã¸Ã©Ã­ Ã Ãº Ã¤-Application
 var app = builder.Build();
 
-// ? Middleware ìäâãøú ä-API
+// ? Middleware Ã¬Ã¤Ã¢Ã£Ã¸Ãº Ã¤-API
 if (app.Environment.IsDevelopment())
 {
-    app.UseSwagger(); // îôòéì àú Swagger
+    app.UseSwagger(); // Ã®Ã´Ã²Ã©Ã¬ Ã Ãº Swagger
     app.UseSwaggerUI(options =>
     {
         options.SwaggerEndpoint("/swagger/v1/swagger.json", "PlayArt API V1");
@@ -139,7 +140,7 @@ if (app.Environment.IsDevelopment())
 
 app.UseHttpsRedirection();
 
-// äôòìú ä-CORS
+// Ã¤Ã´Ã²Ã¬Ãº Ã¤-CORS
 app.UseCors("AllowAll");
 
 app.UseAuthentication();
