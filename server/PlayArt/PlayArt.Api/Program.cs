@@ -21,7 +21,7 @@ using PlayArt.Sevice;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// הוספת sarai
+// הוספת sarai שינוי רחלי
 
 builder.Services.AddCors(options =>
 {
