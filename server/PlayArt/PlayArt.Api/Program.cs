@@ -21,7 +21,7 @@ using PlayArt.Sevice;
 
 var builder = WebApplication.CreateBuilder(args);
 
-// הוספת CORS
+// הוספת sarai
 builder.Services.AddCors(options =>
 {
     options.AddPolicy("AllowAll", builder =>
